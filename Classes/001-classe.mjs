@@ -1,4 +1,4 @@
-import formaGeometrica from "./classe.mjs";
+import formaGeometrica from "../lib/classe.mjs";
 
 const forma1 = new formaGeometrica();
 

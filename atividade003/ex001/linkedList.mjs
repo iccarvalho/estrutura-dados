@@ -6,14 +6,16 @@ class Node{
 }
 
 export default class LinkedList {
-    #head // (cabeça) início da lista
-    #tail // (cauda) final da lista
-    #count // qtde de nós da lista
+    #head; // (cabeça) início da lista
+    #tail; // (cauda) final da lista
+    #count; // qtde de nós da lista
+    #removedHistory;
 
     constructor(){
         this.#head = null;
         this.#tail = null;
         this.#count = 0;
+        this.#removedHistory = [];
     }
 
     // Getter que retorna se a lista está vazia
@@ -102,8 +104,8 @@ export default class LinkedList {
                 this.#tail = before;
             }
         }
-
         this.#count--;
+        this.#removedHistory.push(removed.data);
 
         return removed.data;
     }
@@ -155,7 +157,8 @@ export default class LinkedList {
         return this.peek(0);
     }
 
-    // Método para retornar o valor do último nó (atalho)
+
+    //
     peekTail(){
         return this.peek(this.#count -1);
     }
@@ -173,6 +176,21 @@ export default class LinkedList {
             node = node.next;
         }
         output += ` ) count: ${this.#count}`;
+
+        return output;
+    }
+
+    history(){
+        let output = "[ ";
+
+        this.#removedHistory.forEach((item) => {
+            if(output !== "[ "){
+                output += ", ";
+            }
+
+            output += `${item}`
+        });
+        output += " ]";
 
         return output;
     }

@@ -108,6 +108,38 @@ export default class LinkedList {
         return removed.data;
     }
 
+    removeAll(value){
+        if(this.isEmpty) return;
+
+        let node = this.#head;
+        let prev = null;
+
+        while(node !==  null){
+            if(node.data === value){
+                this.#count --;
+                if(node === this.#head){
+                    this.#head = node.next;
+                    
+                    if(this.#head === null){
+                        this.#tail = null;
+                    }
+
+                    node = this.#head;
+                } else {
+                    prev.next = node.next;
+                    if(node === this.#tail){
+                        this.#tail = prev;
+                    }
+
+                    node = node.next;
+                }
+            } else {
+                prev = node;
+                node = node.next;
+            }
+        }
+    }
+
     // Método para remover o primeiro nó da lista (atalho)
     removeHead(){
         return this.remove(0);

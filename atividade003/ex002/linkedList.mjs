@@ -155,9 +155,27 @@ export default class LinkedList {
         return this.peek(0);
     }
 
+
     // Método para retornar o valor do último nó (atalho)
     peekTail(){
         return this.peek(this.#count -1);
+    }
+
+    reverse(){
+        if(this.isEmpty) return;
+
+        let node = this.#head;
+        let prev = null;
+
+        this.#tail = this.#head;
+        while(node !== null){
+            let aux = node.next;
+            node.next = prev;
+            prev = node;
+            node = aux;
+        }
+
+        this.#head = prev;
     }
 
     print(){

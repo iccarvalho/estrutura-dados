@@ -160,6 +160,21 @@ export default class LinkedList {
         return this.peek(this.#count -1);
     }
 
+    countOccurrences(value){
+        let node = this.#head;
+        let occurrences = 0;
+
+        for(let i = 0; i < this.#count; i++){
+            if(node.data === value){
+                occurrences++;
+            }
+
+            node = node.next;
+        }
+
+        return occurrences;
+    }
+
     print(){
         let output = "( ";
         let node = this.#head;

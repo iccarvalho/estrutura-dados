@@ -176,4 +176,18 @@ export default class LinkedList {
 
         return output;
     }
+
+    toArray(){
+        let array = [];
+
+        if(this.isEmpty) return array;
+
+        let node = this.#head;
+        for(let i = 0; i < this.#count; i++){
+            array.push(node.data);
+            node = node.next;
+        }
+
+        return array;
+    }
 }

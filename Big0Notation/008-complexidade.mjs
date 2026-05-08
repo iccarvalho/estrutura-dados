@@ -70,17 +70,16 @@ function fatorial(n){
 
     // memória real usada pelo processo
     let memoriaTotalMB = "N/A";
-    if(typeof process !== 'undefined' && process.memoryUsage){
-        memoriaTotalMB = process.memoryUsage.heapUsed / 1024 / 1024;
+    if(typeof process !== 'undefined' && process.memoryUsage()){
+        memoriaTotalMB = process.memoryUsage().heapUsed / 1024 / 1024;
     }
 
-    console.clear();
     console.log("Análise de Complexidade Recursiva O(n!)");
     console.log(`Tamanho da entrada: ${n}`);
     console.log(`Resultado do fatorial: ${resultado}`);
-    console.log(`Tempo de execução: ${tempoGasto.toFixed(6)}`);
+    console.log(`Tempo de execução: ${tempoGasto.toFixed(3)} ms`);
     console.log(`Memória estimada da pilha de chamadas: ${memoriaPilhaMB} MB`);
-    console.log(`Memória total usada pelo processo: ${typeof memoriaTotalMB === "number" ? memoriaTotalMB + " MB" : memoriaTotalMB}`);
+    console.log(`Memória total usada pelo processo: ${typeof memoriaTotalMB === "number" ? memoriaTotalMB.toFixed(2) + " MB" : memoriaTotalMB}`);
     
 }
 

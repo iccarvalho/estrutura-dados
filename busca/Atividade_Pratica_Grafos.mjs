@@ -85,21 +85,101 @@ const grafoDesconexo = {
 // EXERCÍCIO 1: BFS COM DISTÂNCIAS E CAMINHOS
 // ==========================================
 function obterDistanciasEBFS(grafo, inicio) {
+  const visitados = new Set();
+  const fila = new Queue();
 
+  let distancias = {};
+  let caminhos = {};
+
+  fila.enqueue(inicio);
+  visitados.add(inicio);
+  distancias[inicio] = 0;
+  caminhos[inicio] = [inicio];
+
+  while(!fila.isEmpty) {
+    const node = fila.dequeue();
+    
+    for(const vizinho of grafo[node]) {
+      if(!visitados.has(vizinho)) {
+        visitados.add(vizinho);
+        fila.enqueue(vizinho);
+
+        distancias[vizinho] = distancias[node] + 1;
+        caminhos[vizinho] = [...caminhos[node], vizinho]
+      }
+    }
+  }
+
+  return {
+    distancias,
+    caminhos
+  };
 }
 
 // ==========================================
 // EXERCÍCIO 2: DETECÇÃO DE CICLOS COM DFS
 // ==========================================
 function detectarCiclo(grafo, inicio) {
+  const visitados = new Set();
+  const pilha = new Stack();
 
+  pilha.push({node: inicio, pai: null});
+
+  while(!pilha.isEmpty) {
+    const { node, pai } = pilha.pop();
+
+    if(visitados.has(node)) {
+      return true;
+    }
+    visitados.add(node);
+
+    const vizinhos = grafo[node];
+    for(let i = vizinhos.length - 1; i >= 0; i--) {
+      if(vizinhos[i] == pai) continue;
+
+      if(visitados.has(vizinhos[i])) {
+        return true;
+      }
+
+      pilha.push({node: vizinhos[i], pai: node});
+    }
+  }
+
+  return false;
 }
 
 // ==========================================
 // EXERCÍCIO 3: COMPONENTES CONEXOS
 // ==========================================
 function contarComponentesConexos(grafo) {
+  const visitados = new Set();
+  let count = 0;
 
+  function percorrerComponente(node) {
+    const pilha = new Stack();
+    pilha.push(node);
+    visitados.add(node);
+
+    while(!pilha.isEmpty) {
+      const current = pilha.pop();
+      
+      for(const vizinho of grafo[current]) {
+        if(!visitados.has(vizinho)) {
+          visitados.add(vizinho);
+          pilha.push(vizinho);
+        }
+      }
+    }
+  }
+
+  for(const vertice in grafo) {
+    if(!visitados.has(vertice)) {
+      count++;
+      percorrerComponente(vertice);
+    }
+  }
+
+  return count;
 }
 
 // ==========================================

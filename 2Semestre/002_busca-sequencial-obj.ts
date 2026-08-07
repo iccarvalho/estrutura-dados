@@ -1,18 +1,9 @@
-import { objNomes } from "./data/vetor-obj-nomes.mjs";
+import { objNomes } from "./data/vetor-obj-nomes.ts";
+import { ObjNomesType } from "./types/ObjNomes.ts"
 
-type objNomesType = {
-    "first_name": string,
-    "group_name": string,
-    "classification": string,
-    "frequency_female": number | null,
-    "frequency_male": number | null,
-    "frequency_total": number,
-    "frequency_group": number,
-    "ratio": number,
-    "alternative_names": number
-}
+type FnComp = (obj: ObjNomesType, name: string) => boolean;
 
-function buscaSequencialObj(arr: objNomesType[], fnComp: (obj: objNomesType, name: string) => boolean, name: string): number {
+function buscaSequencialObj(arr: ObjNomesType[], fnComp: FnComp, name: string): number {
     for(let i = 0; i < arr.length; i++) {
         if(fnComp(arr[i], name)) return i;
     }
@@ -20,8 +11,8 @@ function buscaSequencialObj(arr: objNomesType[], fnComp: (obj: objNomesType, nam
     return -1;
 }
 
-function compararNome(obj: objNomesType, name: string) {
+function compararNome(obj: ObjNomesType, name: string) {
     return obj.first_name === name.toUpperCase();
 }
 
-console.log("Posição do Alexandre: ", buscaSequencialObj(objNomes, compararNome, name));
+console.log("Posição do Alexandre: ", buscaSequencialObj(objNomes, compararNome, "Alexandre"));

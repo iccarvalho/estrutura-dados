@@ -1,6 +1,5 @@
 import { objMotoristas } from "./data/motoristas-obj-desord.ts";
 
-
 type ObjMotoristasType = {
     razao_social: string,
     cnpj: string,

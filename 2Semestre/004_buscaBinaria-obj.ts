@@ -1,9 +1,18 @@
 import { objNomes } from "./data/vetor-obj-nomes.ts";
-import { ObjNomesType } from "./types/ObjNomes.ts"
 
-type FnComp = (midValue: ObjNomesType, searchValue?: string) => number;
+type ObjNomesType = {
+    "first_name": string,
+    "group_name": string,
+    "classification": string,
+    "frequency_female": number | null,
+    "frequency_male": number | null,
+    "frequency_total": number,
+    "frequency_group": number,
+    "ratio": number,
+    "alternative_names": string
+};
 
-function buscaBinariaObj(arr: ObjNomesType[], fnComp: FnComp, name?: string) {
+function buscaBinariaObj<T>(arr: T[], fnComp: (midValue: T, searchValue?: string) => number, name?: string) {
     let start = 0;
     let end = arr.length -1;
 
@@ -26,7 +35,7 @@ function buscaBinariaObj(arr: ObjNomesType[], fnComp: FnComp, name?: string) {
 function compararNome(midValue: ObjNomesType, searchValue = "ALEXANDRE"): number {
     if(searchValue === midValue.first_name) return 0;
     else if(searchValue > midValue.first_name) return 1;
-    else return 1;
+    else return -1;
 }
 
 console.log(`Posição de ALEXANDRE: ${buscaBinariaObj(objNomes, compararNome)}`);

@@ -23,7 +23,15 @@ function mergeSort<T>(arr: T[]){
       }
     }
 
-    return resArr;
+    let rest: T[];
+
+    if (leftPos < rightPos) {
+      rest = leftArr.slice(leftPos);
+    } else {
+      rest = rightArr.slice(rightPos);
+    }
+
+    return [...resArr, ...rest];
 }
   
 let nums = [77, 44, 33, 77, 66, 88, 99, 90, 23, 67, 21, 1, 8];

@@ -27,7 +27,7 @@ let numbers = [77, 44, 22, 33, 99, 55, 88, 0, 66, 11];
 selectionSort(numbers);
 console.log(numbers);
 
-import { nomes } from "./data/nomes-desord.ts";
+import { nomes } from "./data/nomes-desord";
 
 selectionSort(nomes);
 console.log(nomes);

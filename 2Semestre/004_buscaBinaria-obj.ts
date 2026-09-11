@@ -1,4 +1,4 @@
-import { objNomes } from "./data/vetor-obj-nomes.ts";
+import { objNomes } from "./data/vetor-obj-nomes";
 
 type ObjNomesType = {
     "first_name": string,

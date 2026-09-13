@@ -32,7 +32,7 @@ function quickSortObj<T>(arr: T[], fnComp: (elem1: T, elem2: T) => boolean, star
     quickSortObj(arr, fnComp, div + 1, end); 
 }
 
-import { objMotoristas } from "./data/motoristas-obj-desord";
+import { objMotoristas } from "./data/motoristas-obj-desord.mjs";
 
 type ObjMotoristasType = {
     razao_social: string,

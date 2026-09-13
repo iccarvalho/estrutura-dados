@@ -1,4 +1,4 @@
-import { nomes } from "./data/vetor-nomes";
+import { nomes } from "./data/vetor-nomes.mjs";
 
 function buscaBinaria<T>(arr: T[], value: T) {
     let start = 0;

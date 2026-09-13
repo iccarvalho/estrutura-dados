@@ -1,4 +1,4 @@
-import { objMotoristas } from "./data/motoristas-obj-desord";
+import { objMotoristas } from "./data/motoristas-obj-desord.mjs";
 
 type ObjMotoristasType = {
     razao_social: string,

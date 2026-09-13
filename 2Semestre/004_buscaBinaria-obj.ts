@@ -1,4 +1,4 @@
-import { objNomes } from "./data/vetor-obj-nomes";
+import { objNomes } from "./data/vetor-obj-nomes.mjs";
 
 type ObjNomesType = {
     "first_name": string,

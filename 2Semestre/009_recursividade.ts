@@ -10,7 +10,7 @@ function fatorial(n: number) {
 
 console.log(fatorial(5));
 
-function fatorialRecursivo(n: number) {
+function fatorialRecursivo(n: number): number {
     if (n <= 1) {
         return 1;
     }

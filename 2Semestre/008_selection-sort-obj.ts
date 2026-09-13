@@ -23,7 +23,7 @@ function selectionSortObj<T>(arr: T[], fnComp: (elem1: T, elem2: T) => boolean) 
     console.log({pass, comps, changes});
 }
 
-import { objMotoristas } from "./data/motoristas-obj-desord";
+import { objMotoristas } from "./data/motoristas-obj-desord.mjs";
 
 type ObjMotoristasType = {
     razao_social: string,

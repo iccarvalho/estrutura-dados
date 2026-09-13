@@ -38,7 +38,7 @@ quickSort(nums);
 
 console.log(nums);
 
-import {nomes} from "./data/nomes-desord";
+import { nomes } from "./data/nomes-desord.mjs";
 
 quickSort(nomes);
 

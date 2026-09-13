@@ -35,7 +35,7 @@ function mergeSortObj<T>(arr: T[], fnComp: (elem1: T, elem2: T) => boolean) {
     return [...resArr, ...rest];
   }
 
-import { objMotoristas } from "./data/motoristas-obj-desord";
+import { objMotoristas } from "./data/motoristas-obj-desord.mjs";
 
 type ObjMotoristasType = {
     razao_social: string,

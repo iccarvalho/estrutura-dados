@@ -1,7 +1,6 @@
 import { objNomes } from "./data/vetor-obj-nomes.mjs";
-import type { ObjNomesType } from "./@types/ObjNomes.ts";
 
-function buscaBinariaObj<T>(arr: T[], fnComp: (midValue: T, searchValue?: string) => number, name?: string): number {
+function buscaBinariaObj(arr, fnComp) {
     let start = 0;
     let end = arr.length -1;
 
@@ -23,7 +22,7 @@ function buscaBinariaObj<T>(arr: T[], fnComp: (midValue: T, searchValue?: string
     return -1;
 }
 
-function compararNome(midValue: ObjNomesType, searchValue = "ALEXANDRE"): number {
+function compararNome(midValue, searchValue = "ALEXANDRE") {
     if(searchValue === midValue.first_name) return 0;
     else if(searchValue > midValue.first_name) return 1;
     else return -1;

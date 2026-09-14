@@ -1,7 +1,6 @@
 import { objNomes } from "./data/vetor-obj-nomes.mjs";
-import type { ObjNomesType } from "./@types/ObjNomes.ts";
 
-function buscaSequencialObj(arr: ObjNomesType[], fnComp: (obj: ObjNomesType, name: string) => boolean, name: string): number {
+function buscaSequencialObj(arr, fnComp) {
     for(let i = 0; i < arr.length; i++) {
         if(fnComp(arr[i], name)) return i;
     }
@@ -9,7 +8,7 @@ function buscaSequencialObj(arr: ObjNomesType[], fnComp: (obj: ObjNomesType, nam
     return -1;
 }
 
-function compararNome(obj: ObjNomesType, name: string) {
+function compararNome(obj, name) {
     return obj.first_name === name.toUpperCase();
 }
 

@@ -1,6 +1,6 @@
-let pass: number, comps: number, changes: number;
+let pass, comps, changes;
 
-function selectionSortObj<T>(arr: T[], fnComp: (elem1: T, elem2: T) => boolean) {
+function selectionSortObj(arr, fnComp) {
     pass = 0, comps = 0, changes = 0;
 
     for(let selected = 0; selected < arr.length - 1; selected++) {
@@ -24,9 +24,8 @@ function selectionSortObj<T>(arr: T[], fnComp: (elem1: T, elem2: T) => boolean) 
 }
 
 import { objMotoristas } from "./data/motoristas-obj-desord.mjs";
-import type { ObjMotoristasType } from "./@types/ObjMotoristas.ts";
 
-selectionSortObj(objMotoristas, (elem1: ObjMotoristasType, elem2: ObjMotoristasType) => {
+selectionSortObj(objMotoristas, (elem1, elem2) => {
     return elem1.nome_motorista > elem2.nome_motorista;
 });
 

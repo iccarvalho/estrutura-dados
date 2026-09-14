@@ -1,4 +1,4 @@
-function fatorial(n: number): number {
+function fatorial(n) {
     let result = 1;
 
     for (let i = n; i > 1; i--) {
@@ -10,7 +10,7 @@ function fatorial(n: number): number {
 
 console.log(fatorial(5));
 
-function fatorialRecursivo(n: number): number {
+function fatorialRecursivo(n) {
     if (n <= 1) {
         return 1;
     }

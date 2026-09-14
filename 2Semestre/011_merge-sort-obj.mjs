@@ -1,4 +1,4 @@
-function mergeSortObj<T>(arr: T[], fnComp: (elem1: T, elem2: T) => boolean) {
+function mergeSortObj(arr, fnComp) {
     //condição de saída
     if (arr.length < 2) return arr;
   
@@ -13,7 +13,7 @@ function mergeSortObj<T>(arr: T[], fnComp: (elem1: T, elem2: T) => boolean) {
   
     //mesclagem ordenada de vetEsq com vetDir
   
-    let leftPos = 0, rightPos = 0, resArr: T[] = [];
+    let leftPos = 0, rightPos = 0, resArr= [];
   
     while (leftPos < leftArr.length && rightPos < rightArr.length) {
       if (fnComp(rightArr[rightPos], leftArr[leftPos])) {
@@ -25,7 +25,7 @@ function mergeSortObj<T>(arr: T[], fnComp: (elem1: T, elem2: T) => boolean) {
       }
     }
   
-    let rest: T[];
+    let rest;
     if (leftPos < rightPos) {
       rest = leftArr.slice(leftPos);
     } else {
@@ -36,9 +36,8 @@ function mergeSortObj<T>(arr: T[], fnComp: (elem1: T, elem2: T) => boolean) {
   }
 
 import { objMotoristas } from "./data/motoristas-obj-desord.mjs";
-import type { ObjMotoristasType } from "./@types/ObjMotoristas.ts";
 
-let objMotoristasOrd = mergeSortObj(objMotoristas, (elem1: ObjMotoristasType, elem2: ObjMotoristasType) => {
+let objMotoristasOrd = mergeSortObj(objMotoristas, (elem1, elem2) => {
     return elem1.nome_motorista > elem2.nome_motorista;
 });
   

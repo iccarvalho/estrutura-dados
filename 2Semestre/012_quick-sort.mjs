@@ -1,6 +1,6 @@
 let pass = 0, comps = 0, changes = 0;
 
-function quickSort<T>(arr: T[], start = 0, end = arr.length - 1) {
+function quickSort(arr, start = 0, end = arr.length - 1) {
   //só trabalhamos se a aregião do vetor tiver, pelo menos, 2 elementos
   if (end <= start) return; //condição de saída
 

@@ -1,7 +1,7 @@
 let pass = 0, comps = 0, changes = 0;
 
-function bubbleSort(arr: number[]) {
-    let swap: boolean;
+function bubbleSort(arr) {
+    let swap;
 
     do {
         pass++;

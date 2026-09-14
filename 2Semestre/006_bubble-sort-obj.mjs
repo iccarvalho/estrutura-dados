@@ -1,11 +1,10 @@
 import { objMotoristas } from "./data/motoristas-obj-desord.mjs";
-import type { ObjMotoristasType } from "./@types/ObjMotoristas.ts";
 
-let pass: number, comps: number, changes: number;
+let pass, comps, changes;
 
-function bubbleSortObj<T>(arr: T[], fnComp: (elem1: T, elem2: T) => boolean) {
+function bubbleSortObj(arr, fnComp) {
     pass = 0, comps = 0, changes = 0;
-    let swap: boolean;
+    let swap;
 
     do {
         pass++;
@@ -25,7 +24,7 @@ function bubbleSortObj<T>(arr: T[], fnComp: (elem1: T, elem2: T) => boolean) {
     console.log({pass, comps, changes});
 }
 
-bubbleSortObj(objMotoristas, (elem1: ObjMotoristasType, elem2: ObjMotoristasType) => {
+bubbleSortObj(objMotoristas, (elem1, elem2) => {
     return elem1.nome_motorista > elem2.nome_motorista
 });
 

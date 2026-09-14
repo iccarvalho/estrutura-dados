@@ -1,6 +1,6 @@
 let pass = 0, comps = 0, changes = 0; 
 
-function quickSortObj<T>(arr: T[], fnComp: (elem1: T, elem2: T) => boolean, start = 0, end = arr.length - 1) {
+function quickSortObj(arr, fnComp, start = 0, end = arr.length - 1) {
     //só trabalhamos se a aregião do vetor tiver, pelo menos, 2 elementos
     if (end <= start) return; //condição de saída
 
@@ -33,9 +33,8 @@ function quickSortObj<T>(arr: T[], fnComp: (elem1: T, elem2: T) => boolean, star
 }
 
 import { objMotoristas } from "./data/motoristas-obj-desord.mjs";
-import type { ObjMotoristasType } from "./@types/ObjMotoristas.ts";
 
-quickSortObj(objMotoristas, (elem1: ObjMotoristasType, elem2: ObjMotoristasType) => {
+quickSortObj(objMotoristas, (elem1, elem2) => {
     if (elem1.razao_social !== elem2.razao_social) {
         return elem1.razao_social > elem2.razao_social;
     }

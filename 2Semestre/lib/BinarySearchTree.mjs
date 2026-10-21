@@ -142,14 +142,14 @@ export default class BinarySearchTree {
     // 2º caso: valor a ser excluído é MENOR que o valor da raiz
     // Continua, recursivamente, o processo de exclução pela subárvore ESQUERDA
     if(value < root.data) {
-      root.left = this.#removeNode(this.#root.left, value);
+      root.left = this.#removeNode(root.left, value);
       return root;
     }
 
     // 3º caso: valor a ser excluído é MAIOR que o valor da raiz
     // Continua, recursivamente, o processo de exclução pela subárvore DIREITA
     if(value > root.data) {
-      root.right = this.#removeNode(this.#root.right, value);
+      root.right = this.#removeNode(root.right, value);
       return root;
     }
 

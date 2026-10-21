@@ -173,5 +173,48 @@ export default class BinarySearchTree {
       root = root.right;
       return root;
     }
+
+    // 4.4: Nodo de grau 2
+    /*
+      Precisando encontrar:
+      1. O nodo de MAIOR valor da subárvore ESQUERDA; ou
+      2. O nodo de MENOR valor da subárvore DIREITA.
+    */
+    
+    // Nodo de menor valor da subárvore direita
+    const newRoot = this.#minNode(root.right);
+
+    root.data = newRoot.data;
+
+    // Excluímos o valor
+    root.right = this.#removeNode(root.right, newRoot.data);
+
+    return root;
+  }
+
+  /* Método público que busca por um valor dentro da árvore
+    Retorna:
+      - true, caso o valor exista; ou
+      - false, caso contrário
+  */
+
+  search(val) {
+    const node = this.#searchNode(this.#root, val);
+    return node !== null;
+  }
+
+  // Método privado de busca
+  #searchNode(root, val) {
+    // 1º caso: árvore vazia
+    if(root === null) return null;
+
+    // 2° caso: valor procurado é MENOR que o valor da raiz; continua a busca pela subárvore ESQUERDA
+    if(val < root.data) return this.#searchNode(root.left, val);
+
+    // 3º caso: valor procurado é MAIOR que o valor da raiz; continua a busca pela subárvore DIREITA
+    if(val > root.data) return this.#searchNode(root.right, val);
+
+    // 4º caso: valor procurado é IGUAL ao valor da raiz
+    return root;
   }
 }
